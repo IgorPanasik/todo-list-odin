@@ -1,0 +1,31 @@
+{
+	"name": "todo-list-odin",
+	"version": "1.0.0",
+	"description": "The Odin Project | Todo List",
+	"homepage": "https://github.com/IgorPanasik/todo-list-odin#readme",
+	"bugs": {
+		"url": "https://github.com/IgorPanasik/todo-list-odin/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/IgorPanasik/todo-list-odin.git"
+	},
+	"license": "ISC",
+	"author": "Igor Panasik",
+	"main": "index.js",
+	"scripts": {
+		"build": "webpack --config webpack.prod.js",
+		"start": "webpack serve --open --config webpack.dev.js",
+		"deploy": "git subtree push --prefix dist origin gh-pages"
+	},
+	"sideEffects": false,
+	"devDependencies": {
+		"css-loader": "^7.1.2",
+		"html-webpack-plugin": "^5.6.3",
+		"style-loader": "^4.0.0",
+		"webpack": "^5.99.8",
+		"webpack-cli": "^6.0.1",
+		"webpack-dev-server": "^5.2.1",
+		"webpack-merge": "^6.0.1"
+	}
+}
