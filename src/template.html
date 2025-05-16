@@ -10,6 +10,170 @@
 <body>
 	<div id="app">
 
+		<!-- Sidebar for projects -->
+		<aside class="sidebar">
+			<nav class="sidebar__navigation">
+				<div class="sidebar__controls">
+					<h2>Your Projects</h2>
+					<button aria-label="Add Project" type="button">
+						<img src="./assets/images/add.svg" alt="Add Project">
+					</button>
+				</div>
+				<section class="projects">
+					<ul class="projects__list">
+						<li class="projects__item">
+							<button type="button" class="projects__btn">Default Project</button>
+							<div class="projects__action">
+								<div class="buttons__control">
+									<button aria-label="Edit Name Project" type="button" class="projects__rename">
+										<img src="./assets/images/edit.svg" alt="Edit Name Project">
+									</button>
+									<button aria-label="Delete Project" type="button" class="projects__delete">
+										<img src="./assets/images/del.svg" alt="Delete Project">
+									</button>
+								</div>
+								<span>05/04/2025</span>
+							</div>
+						</li>
+					</ul>
+				</section>
+			</nav>
+		</aside>
+
+		<!-- Main workspace -->
+		<main class="workspace">
+			<header class="workspace__header">
+				<div class="workspace__header-actions">
+					<h2>Name Project</h2>
+					<button type="button">Add Task</button>
+				</div>
+				<div class="workspace__sort">
+					<label for="sort_todo">Sort by:</label>
+					<div class="select-wrapper">
+						<select name="sort_todo" id="sort_todo">
+							<option value="title">Title</option>
+							<option value="data">Data</option>
+							<option value="status">Status</option>
+							<option value="priority">Priority</option>
+						</select>
+					</div>
+				</div>
+			</header>
+
+			<!-- Empty State -->
+			<section class="empty-state">
+				<img src="./assets/images/list.svg" alt="Empty List">
+				<p>No task yet</p>
+				<p>Click "Add Task" to create a new task</p>
+			</section>
+
+			<!-- Section TODOS -->
+			<section class="todos">
+				<ul class="todos__list">
+					<li class="todos__item">
+						<div class="todos__content">
+							<p class="todos__title">Something TODO</p>
+							<p class="todos__describe">
+								<span>Describe:</span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint dignissimos
+								harum, fuga ad repellendus inventore officia natus explicabo quas laboriosam reprehenderit ab molestias
+								quasi cupiditate cum maiores labore in quod.
+							</p>
+							<p class="todos__notes">
+								<span>Notes:</span>
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias eaque nobis inventore incidunt
+								aspernatur iste ex, possimus fugiat minima? Dolor eligendi nemo quibusdam saepe aperiam molestiae?
+								Numquam, fugiat. Nemo, distinctio?
+							</p>
+							<div class="todos__actions">
+								<button type="button" class="todos__edit">Change TODO</button>
+								<button type="button" class="todos__delete">Delete TODO</button>
+							</div>
+
+							<div class="todos__meta">
+								<span class="priority-marker high" aria-hidden="true"></span>
+								<span class="todos__priority">High</span>
+								<span>|</span>
+								<time class="todos__date" datetime="2025-01-15">Deadline: 15.01.2025</time>
+								<span>|</span>
+								<label for="status_done" class="todos__checkbox-label">
+									Done
+									<input type="checkbox" name="status_done" id="status_done">
+									<span class="custom-checkbox"></span>
+								</label>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</section>
+		</main>
+
+		<!-- Modal for Adding a Project-->
+		<div class="modal modal-project" role="dialog" aria-labelledby="modal-project-title" aria-modal="true">
+			<div class="modal__content">
+				<header class="modal__header">
+					<h2 id="modal-project-title">Add Your Project</h2>
+				</header>
+
+				<form method="post" class="modal__form">
+					<div class="modal__form-group">
+						<label for="project_title">
+							Project Title<span class="star">*</span>
+						</label>
+						<input type="text" name="project_title" id="project_title" required>
+					</div>
+					<div class="modal__form-group">
+						<p class="data-create">Data Create</p>
+						<span>05.04.2025</span>
+					</div>
+					<footer class="modal__footer">
+						<button type="submit" class="modal__submit">Save Project</button>
+						<button type="button" class="modal__close" aria-label="Close modal">Cancel</button>
+					</footer>
+				</form>
+			</div>
+		</div>
+
+		<!-- Modal for Adding a Todo -->
+		<div class="modal modal--todo" role="dialog" aria-labelledby="modal-todo-title" aria-modal="true">
+			<div class="modal__content">
+				<header class="modal__header">
+					<h2 id="modal-todo-title">Add Todo</h2>
+				</header>
+
+				<form method="post" class="modal__form">
+					<div class="modal__form-group">
+						<label for="todo_title">Title<span class="star">*</span>:</label>
+						<input type="text" name="todo_title" id="todo_title" required>
+					</div>
+					<div class="modal__form-group">
+						<label for="description">Description:</label>
+						<textarea type="text" name="description" id="description"></textarea>
+					</div>
+					<div class="modal__form-group">
+						<label for="due_date">Due Date:</label>
+						<input type="date" name="due_date" id="due_date">
+					</div>
+					<div class="modal__form-group">
+						<label for="select_priority">Priority</label>
+						<div class="select-wrapper">
+							<select name="select_priority" id="select_priority">
+								<option value="low">Low</option>
+								<option value="medium">Medium</option>
+								<option value="heigh">Heigh</option>
+							</select>
+						</div>
+					</div>
+					<div class="modal__form-group">
+						<label for="notes">Notes:</label>
+						<textarea type="text" name="notes" id="notes"></textarea>
+					</div>
+					<footer class="modal__footer">
+						<button type="submit" class="modal__submit">Save Task</button>
+						<button type="button" class="modal__close" aria-label="Close modal">Cancel</button>
+					</footer>
+				</form>
+			</div>
+		</div>
 	</div>
 </body>
 
