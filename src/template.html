@@ -12,30 +12,14 @@
 
 		<!-- Sidebar for projects -->
 		<aside class="sidebar">
+			<div class="sidebar__controls">
+				<h2>Your Projects</h2>
+				<button aria-label="Add Project" type="button" class="add__btn-project">
+					<img src="./assets/images/add.svg" alt="Add Project">
+				</button>
+			</div>
 			<nav class="sidebar__navigation">
-				<div class="sidebar__controls">
-					<h2>Your Projects</h2>
-					<button aria-label="Add Project" type="button">
-						<img src="./assets/images/add.svg" alt="Add Project">
-					</button>
-				</div>
 				<section class="projects">
-					<ul class="projects__list">
-						<li class="projects__item">
-							<button type="button" class="projects__btn">Default Project</button>
-							<div class="projects__action">
-								<div class="buttons__control">
-									<button aria-label="Edit Name Project" type="button" class="projects__rename">
-										<img src="./assets/images/edit.svg" alt="Edit Name Project">
-									</button>
-									<button aria-label="Delete Project" type="button" class="projects__delete">
-										<img src="./assets/images/del.svg" alt="Delete Project">
-									</button>
-								</div>
-								<span>05/04/2025</span>
-							</div>
-						</li>
-					</ul>
 				</section>
 			</nav>
 		</aside>
@@ -114,19 +98,15 @@
 					<h2 id="modal-project-title">Add Your Project</h2>
 				</header>
 
-				<form method="post" class="modal__form">
+				<form method="post" class="modal__form" id="form__project">
 					<div class="modal__form-group">
 						<label for="project_title">
 							Project Title<span class="star">*</span>
 						</label>
 						<input type="text" name="project_title" id="project_title" required>
 					</div>
-					<div class="modal__form-group">
-						<p class="data-create">Data Create</p>
-						<span>05.04.2025</span>
-					</div>
 					<footer class="modal__footer">
-						<button type="submit" class="modal__submit">Save Project</button>
+						<button type="submit" class="modal__submit">Add Project</button>
 						<button type="button" class="modal__close" aria-label="Close modal">Cancel</button>
 					</footer>
 				</form>
@@ -140,7 +120,7 @@
 					<h2 id="modal-todo-title">Add Todo</h2>
 				</header>
 
-				<form method="post" class="modal__form">
+				<form method="post" class="modal__form" id="form__todo">
 					<div class="modal__form-group">
 						<label for="todo_title">Title<span class="star">*</span>:</label>
 						<input type="text" name="todo_title" id="todo_title" required>
