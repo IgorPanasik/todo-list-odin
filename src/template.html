@@ -53,41 +53,6 @@
 
 			<!-- Section TODOS -->
 			<section class="todos">
-				<ul class="todos__list">
-					<li class="todos__item">
-						<div class="todos__content">
-							<p class="todos__title">Something TODO</p>
-							<p class="todos__describe">
-								<span>Describe:</span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint dignissimos
-								harum, fuga ad repellendus inventore officia natus explicabo quas laboriosam reprehenderit ab molestias
-								quasi cupiditate cum maiores labore in quod.
-							</p>
-							<p class="todos__notes">
-								<span>Notes:</span>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias eaque nobis inventore incidunt
-								aspernatur iste ex, possimus fugiat minima? Dolor eligendi nemo quibusdam saepe aperiam molestiae?
-								Numquam, fugiat. Nemo, distinctio?
-							</p>
-							<div class="todos__actions">
-								<button type="button" class="todos__edit">Change TODO</button>
-								<button type="button" class="todos__delete">Delete TODO</button>
-							</div>
-
-							<div class="todos__meta">
-								<span class="priority-marker high" aria-hidden="true"></span>
-								<span class="todos__priority">High</span>
-								<span>|</span>
-								<time class="todos__date" datetime="2025-01-15">Deadline: 15.01.2025</time>
-								<span>|</span>
-								<label for="status_done" class="todos__checkbox-label">
-									Done
-									<input type="checkbox" name="status_done" id="status_done">
-									<span class="custom-checkbox"></span>
-								</label>
-							</div>
-						</div>
-					</li>
-				</ul>
 			</section>
 		</main>
 
@@ -117,7 +82,7 @@
 		<div class="modal modal--todo" role="dialog" aria-labelledby="modal-todo-title" aria-modal="true">
 			<div class="modal__content">
 				<header class="modal__header">
-					<h2 id="modal-todo-title">Add Todo</h2>
+					<h2 id="modal-todo-title">Add Task</h2>
 				</header>
 
 				<form method="post" class="modal__form" id="form__todo">
@@ -139,7 +104,7 @@
 							<select name="select_priority" id="select_priority">
 								<option value="low">Low</option>
 								<option value="medium">Medium</option>
-								<option value="heigh">Heigh</option>
+								<option value="high">High</option>
 							</select>
 						</div>
 					</div>
@@ -149,7 +114,7 @@
 					</div>
 					<footer class="modal__footer">
 						<button type="submit" class="modal__submit">Save Task</button>
-						<button type="button" class="modal__close" aria-label="Close modal">Cancel</button>
+						<button type="button" class="modal__close-todo" aria-label="Close modal">Cancel</button>
 					</footer>
 				</form>
 			</div>

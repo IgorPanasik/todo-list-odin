@@ -1,6 +1,4 @@
-import { handleProjectForm } from './projectFormHandler';
-import { projectsRender } from './projectsRender';
 import './styles.css';
+import { initLoad } from './utils/initLoad';
 
-handleProjectForm();
-projectsRender();
+initLoad();

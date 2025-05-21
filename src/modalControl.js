@@ -1,30 +1,35 @@
 import { domRefs } from './domRefs';
-import { state } from './stateProject';
+import {
+	updateProjectModalHeader,
+	updateTaskModalHeader,
+} from './modalHelpers';
+import { stateTask } from './objectsState';
 
+// Modal PROJECT Open
 export const openModalAddNewProject = () => {
 	domRefs.modalProject.classList.add('open');
 	domRefs.inputProjectTitle.focus();
 
-	const title = domRefs.modalProject.querySelector('#modal-project-title');
-	const btnSave = domRefs.modalProject.querySelector('.modal__submit');
-
-	if (state.currentMode === 'edit') {
-		title.textContent = 'Rename Project';
-		btnSave.textContent = 'Save Name';
-	} else {
-		title.textContent = 'Add Your Project';
-		btnSave.textContent = 'Add Project';
-	}
+	updateProjectModalHeader();
 };
-
+// Modal PROJECT Close
 export const closeModalAddNewProject = () => {
 	domRefs.modalProject.classList.remove('open');
 	domRefs.inputProjectTitle.value = '';
 };
 
-domRefs.addProjectButton.addEventListener('click', () => {
-	state.currentMode = 'add';
-	state.editingProjectId = null;
-	openModalAddNewProject();
-});
-domRefs.modalCloseButton.addEventListener('click', closeModalAddNewProject);
+// Modal TASK Open
+export const modalAddTask = () => {
+	domRefs.modalTodo.classList.add('open');
+	domRefs.inputTodoTitle.focus();
+
+	updateTaskModalHeader();
+};
+
+// Modal TASK Close
+export const modalCloseAddTask = () => {
+	domRefs.modalTodo.classList.remove('open');
+	if (stateTask !== 'edit') {
+		domRefs.inputTodoTitle.textContent = '';
+	}
+};

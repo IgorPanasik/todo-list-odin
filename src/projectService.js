@@ -1,10 +1,14 @@
+import { projectsRender } from './projectsRender';
+import { TaskService } from './TaskService';
+import { tasksRender } from './tasksRender';
+import { setLocalStorageProject } from './utils/localStoreFuncs/setLocalStorageProject';
+
 export class Project {
 	static storeProjects = [
 		{
 			id: 'default',
 			title: 'Default Project',
 			dataCreate: new Date(),
-			tasks: [],
 		},
 	];
 
@@ -13,10 +17,9 @@ export class Project {
 			id: crypto.randomUUID(),
 			title: projectName,
 			dataCreate: new Date(),
-			tasks: [],
 		};
-
 		Project.storeProjects.push(newProject);
+		setLocalStorageProject();
 	}
 
 	static renameProject(id, renameProjectName) {
@@ -25,6 +28,7 @@ export class Project {
 		);
 		if (!currentProject) throw new Error(`Project with id ${id} not found.`);
 		currentProject.title = renameProjectName;
+		setLocalStorageProject();
 	}
 
 	static deleteProject(id) {
@@ -34,6 +38,14 @@ export class Project {
 
 		if (index !== -1) {
 			Project.storeProjects.splice(index, 1);
+			setLocalStorageProject();
+
+			TaskService.storeTasks = TaskService.storeTasks.filter(
+				(task) => task.projectID !== id,
+			);
+
+			projectsRender();
+			tasksRender();
 		} else {
 			throw new Error(`Project with id ${id} not found.`);
 		}

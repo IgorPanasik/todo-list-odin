@@ -1,8 +1,9 @@
-import { domRefs } from './domRefs';
-import { closeModalAddNewProject } from './modalControl';
-import { Project } from './projectService';
-import { projectsRender } from './projectsRender';
-import { state } from './stateProject';
+import { domRefs } from '../domRefs';
+import { closeModalAddNewProject } from '../modalControl';
+import { stateProject } from '../objectsState';
+import { Project } from '../ProjectService';
+
+import { projectsRender } from '../projectsRender';
 
 export const handleProjectForm = () => {
 	domRefs.formProject.addEventListener('submit', (e) => {
@@ -14,12 +15,11 @@ export const handleProjectForm = () => {
 			return;
 		}
 
-		if (state.currentMode === 'edit') {
-			Project.renameProject(state.editingProjectId, projectTitle);
+		if (stateProject.currentMode === 'edit') {
+			Project.renameProject(stateProject.editingProjectId, projectTitle);
 			projectsRender();
 
 			closeModalAddNewProject();
-			e.target.reset();
 		} else {
 			Project.addNewProject(projectTitle);
 			projectsRender();
